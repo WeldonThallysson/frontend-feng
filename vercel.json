@@ -1,0 +1,8 @@
+{
+  "builds": [
+    {
+      "src": "dist/browser/**",
+      "use": "@vercel/static"
+    }
+  ]
+}
