@@ -19,7 +19,12 @@
           <input matInput type="password" [(ngModel)]="password" name="password" required />
         </mat-form-field>
 
-        <button mat-raised-button class="btn-login" (click)="login()">Entrar</button>
+        <button mat-raised-button class="btn-login" (click)="login()" [disabled]="isLoading">
+          <ng-container *ngIf="isLoading">
+            <mat-progress-spinner diameter="20" mode="indeterminate" style="color: rgb(255, 255, 255);"></mat-progress-spinner>
+          </ng-container>
+          <ng-container *ngIf="!isLoading">Entrar</ng-container>
+        </button>
 
         <button mat-button class="btn-cadastro" (click)="goToCadastro()">Cadastre-se</button>
       </form>

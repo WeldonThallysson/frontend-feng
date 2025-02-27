@@ -7,6 +7,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { login } from '../../services/Auth/Login/login';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatProgressSpinner  } from '@angular/material/progress-spinner';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -14,16 +16,19 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
   imports: [
+    CommonModule,
     FormsModule,
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    MatProgressSpinner
   ]
 })
 export class LoginComponent {
   email: string = '';
   password: string = '';
+  isLoading: boolean = false;
 
   constructor(private router: Router, private snackBar: MatSnackBar ) {}
 
@@ -35,9 +40,14 @@ export class LoginComponent {
   }
 
   login = async () => {
+    this.isLoading = true;
     try {
       const response = await login({ email: this.email, password: this.password });
 
+
+      if(response){
+        this.isLoading = false;
+      }
 
       localStorage.setItem('token', response.data.access_token);
       localStorage.setItem('id', String(response.data.id))
@@ -54,7 +64,15 @@ export class LoginComponent {
 
 
 
-    } catch (error) {
+    } catch (error: any) {
+      this.isLoading = false
+      this.snackBar.open("Usuário não existe", "Fechar", {
+        duration: 3000,
+        horizontalPosition:"center",
+        verticalPosition: "top",
+        panelClass: ['success-snackbar'],
+      })
+
       console.error('Erro ao fazer login', error);
     }
   }

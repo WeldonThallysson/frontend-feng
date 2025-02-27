@@ -7,38 +7,44 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { register } from '../../services/Auth/Register/login';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { CommonModule } from '@angular/common';
+import { MatProgressSpinner  } from '@angular/material/progress-spinner';
 @Component({
   selector: 'app-register',
   standalone: true,
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
   imports: [
+    CommonModule,
     FormsModule,
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    MatProgressSpinner
 
   ]
 })
 
 export class RegisterComponent {
   name: string = '';
-  phone: string = '';
   email: string = '';
+  phone: string = '';
   password: string = '';
+  isLoading: boolean = false;
+
 
   constructor(private router: Router, private snackBar: MatSnackBar ) {}
 
-  login = async () => {
+  register = async () => {
+    this.isLoading = true
     try {
       await register({
         name: this.name,
         phone: this.phone,
         email: this.email,
         password: this.password });
-
+        this.isLoading = false
 
       this.router.navigate(['/login']);
 
@@ -49,10 +55,15 @@ export class RegisterComponent {
         panelClass: ['success-snackbar'],
       })
 
-
-
-    } catch (error) {
-      console.error('Erro ao fazer login', error);
+    } catch (error: any) {
+      this.isLoading = false
+      this.snackBar.open(error.message, "Fechar", {
+        duration: 3000,
+        horizontalPosition:"center",
+        verticalPosition: "top",
+        panelClass: ['success-snackbar'],
+      })
+      console.error('Erro ao cadastrar usuário', error);
     }
   }
 
