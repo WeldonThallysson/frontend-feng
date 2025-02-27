@@ -1,7 +1,7 @@
 {
   "builds": [
     {
-      "src": "dist/frontend-feng/**",
+      "src": "dist/frontend-feng/browser",
       "use": "@vercel/static"
     }
   ]
