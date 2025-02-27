@@ -1,0 +1,128 @@
+/* Base styles for the Products page */
+.main-content {
+  padding: 35px 12rem;
+  max-width: 100%;
+  margin: 0;
+}
+
+.produto-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  color: #f4f4f4;
+}
+
+.produto-item {
+  margin-bottom: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box; /* Garante que padding e bordas não afetem a largura total */
+}
+
+.mat-card {
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Garante que o card ocupe toda a largura disponível */
+  box-sizing: border-box; /* Para que o padding e a borda não aumentem a largura */
+}
+
+.mat-card-header {
+  background-color: #f4f4f4;
+  padding: 16px;
+}
+
+.mat-card-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.mat-card-subtitle {
+  font-size: 14px;
+  color: #777;
+}
+
+.mat-card-content {
+  padding: 16px;
+}
+
+button {
+  background-color: #2865ea;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2358d6;
+}
+
+.loading-indicator {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.loading__label {
+  color: #f4f4f4;
+  margin-top: 10px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1200px) {
+  .main-content {
+    padding: 35px 5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 35px 2rem;
+  }
+
+  .produto-title {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .produto-item {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .mat-card {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding:  20px
+  }
+
+  .produto-title {
+    align-items: center;
+    text-align: center;
+  }
+
+  .produto-item {
+    margin-bottom: 15px;
+    padding: 0
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+  }
+}

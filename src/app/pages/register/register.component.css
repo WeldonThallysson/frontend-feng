@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+mat-card {
+  padding: 1rem 2rem;
+  margin: 1rem;
+  width: 100%;
+  max-width: 450px; /* Largura um pouco maior */
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  width: 80px;
+  margin-bottom: -1rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.input-field {
+  margin-bottom: 1rem; /* Reduzi o espaçamento entre os inputs */
+  height: 48px;
+}
+
+.btn-login {
+  width: 100%;
+  background-color: #007BFF !important; /* Azul */
+  color: white !important;
+  margin-top: 0.8rem;
+  height: 40px;
+}
+
+.btn-cadastro {
+  width: 100%;
+  margin-top: 0.5rem;
+  color: #007BFF !important; /* Azul */
+  text-transform: none;
+  font-size: 0.9rem;
+}

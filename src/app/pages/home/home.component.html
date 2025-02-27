@@ -1,0 +1,78 @@
+<div class="main-content">
+  <div class="pedido-title">
+    <h2 class="title">Pedidos</h2>
+    <div class="filters">
+      <!-- Filtro de Data Início com data e hora -->
+      <input
+        matInput
+        placeholder="Data Início (YYYY-MM-DD HH:mm)"
+        type="datetime-local"
+        [(ngModel)]="filtroDataInicio"
+        class="input-date"
+      />
+
+      <!-- Filtro de Data Fim com data e hora -->
+      <input
+        matInput
+        placeholder="Data Fim (YYYY-MM-DD HH:mm)"
+        type="datetime-local"
+        [(ngModel)]="filtroDataFim"
+        class="input-date"
+      />
+
+      <!-- Filtro de Pesquisa Livre -->
+      <input
+        matInput
+        placeholder="Pesquisar por Nome ou Valor..."
+        [(ngModel)]="filtroNomeOuValor"
+        class="input-search"
+      />
+
+      <!-- Botão para aplicar filtros -->
+      <button
+        style="border-radius: 5px; background-color: #2865ea; color: #f4f4f4;"
+        mat-button
+        (click)="applyFilters()"
+        class="apply-filters-btn"
+      >
+        Aplicar Filtros
+      </button>
+    </div>
+  </div>
+
+  <!-- Loading Indicator -->
+  <div *ngIf="isLoading" class="loading-indicator">
+    <mat-spinner style="font-size: small;"></mat-spinner>
+    <p class="loading__label">Carregando pedidos...</p>
+  </div>
+
+  <!-- Lista de Pedidos -->
+  <ng-container *ngIf="!isLoading">
+    <div *ngIf="pedidos.length === 0" class="no-pedidos-message">
+      <a (click)="navigateTo('products')" >
+        <p>Faça seu pedido</p>
+      </a>
+
+    </div>
+
+    <div *ngFor="let pedido of pedidos" class="pedido-item">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{ pedido.nome }}</mat-card-title>
+          <mat-card-subtitle>{{ pedido.data | date: 'short' }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ pedido.usuario }}</p>
+          <p>{{ pedido.valor | currency }}</p>
+          <button
+            mat-button
+            (click)="cancelarPedido(pedido.id)"
+            style="background-color: #ea285a; color: white;"
+          >
+            Cancelar
+          </button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </ng-container>
+</div>

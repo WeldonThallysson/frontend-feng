@@ -1,0 +1,18 @@
+<header class="header">
+  <div class="logo">
+    <h2 (click)="navigateTo('home')">Fang Orders</h2>
+  </div>
+  <div class="menu">
+    <ul>
+      <li (click)="navigateTo('home')">Meus Pedidos</li>
+      <!--
+       <li (click)="navigateTo('products')">Produtos</li>
+      <li (click)="navigateTo('clients')">Clientes</li>
+      -->
+      <li class="order__button" (click)="navigateTo('products')">Pedir</li>
+      <li (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>
+      </li>
+    </ul>
+  </div>
+</header>
