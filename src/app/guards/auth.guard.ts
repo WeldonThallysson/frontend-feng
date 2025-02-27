@@ -8,8 +8,6 @@ export const authGuard: CanActivateFn = (route, state) => {
   const headerService = inject(HeaderService);
 
   if (token) {
-
-    router.navigate(['/home']);
     headerService.setHeaderVisibility(true);
     return true;
   } else {

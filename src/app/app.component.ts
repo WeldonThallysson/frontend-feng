@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent, HeaderService } from './components/header/header.component';
-import { CommonModule } from '@angular/common'; // Importe o CommonModule
+import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({

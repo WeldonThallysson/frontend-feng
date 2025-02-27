@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { getAllOrders } from '../../services/Orders/getAllOrders'; // Importando o serviço
-import { IResponseGetAllOrders } from '../../interfaces/services/Orders/interface.getall.orders';
+import { getAllOrders } from '../../services/Orders/getAllOrders';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';  // Importando MatProgressSpinnerModule
-import { FormsModule } from '@angular/forms'; // Importe FormsModule
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { FormsModule } from '@angular/forms';
 import { deleteOrder } from '../../services/Orders/deleteOrder';
 
 export interface Pedido {

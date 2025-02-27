@@ -3,13 +3,11 @@
     <h2 class="title">Produtos</h2>
   </div>
 
-  <!-- Loading Indicator -->
   <div *ngIf="isLoading" class="loading-indicator">
     <mat-spinner style="font-size: small;"></mat-spinner>
     <p class="loading__label">Carregando produtos...</p>
   </div>
 
-  <!-- Lista de Produtos -->
   <ng-container *ngIf="!isLoading">
     <div *ngFor="let produto of produtos" class="produto-item">
       <mat-card>
