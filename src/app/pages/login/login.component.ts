@@ -47,7 +47,7 @@ export class LoginComponent {
 
       if(response){
         this.isLoading = false;
-      }
+
 
       localStorage.setItem('token', response.data.access_token);
       localStorage.setItem('id', String(response.data.id))
@@ -61,7 +61,7 @@ export class LoginComponent {
 
         panelClass: ['success-snackbar']
       })
-
+    }
 
 
     } catch (error: any) {
